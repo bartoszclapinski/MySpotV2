@@ -5,9 +5,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-app.MapControllers();
-
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
 
