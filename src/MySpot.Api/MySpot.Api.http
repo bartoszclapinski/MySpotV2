@@ -21,4 +21,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{url}}/reservations/2
+DELETE {{url}}/reservations/1

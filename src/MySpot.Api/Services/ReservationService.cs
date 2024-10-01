@@ -14,8 +14,15 @@ public class ReservationService
 
     public int? Create(Reservation reservation)
     {
+        var now = DateTime.UtcNow.Date;
+        var pastDays = now.DayOfWeek is DayOfWeek.Sunday ? 7 : (int)now.DayOfWeek;
+        var remainingDays = 7 - pastDays;
+
         if (ParkingSpotNames.All(x => x != reservation.ParkingSpotName)) return default;
-        reservation.Date = DateTime.UtcNow.AddDays(1).Date;
+
+        if (!(reservation.Date.Date >= now.Date && reservation.Date.Date < now.Date.AddDays(remainingDays))) 
+            return default;
+
         var reservationAlreadyExists = Reservations
             .Any(x => x.ParkingSpotName == reservation.ParkingSpotName && x.Date == reservation.Date);
         if (reservationAlreadyExists) return default;
@@ -27,7 +34,10 @@ public class ReservationService
     public bool Update(Reservation reservation)
     {
         var existingReservation = Get(reservation.Id);
+
         if (existingReservation is null) return false;
+        if (existingReservation.Date < DateTime.UtcNow.Date) return false;
+        
         existingReservation.LicensePlate = reservation.LicensePlate;
         return true;
     }
