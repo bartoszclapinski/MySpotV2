@@ -1,8 +1,9 @@
 using System;
+using MySpot.Api.ValueObjects;
 
 namespace MySpot.Api.Services;
 
 public class Clock
 {
-    public DateTime Current() => DateTime.UtcNow;
+    public Date Current() => Date.Now;
 }
