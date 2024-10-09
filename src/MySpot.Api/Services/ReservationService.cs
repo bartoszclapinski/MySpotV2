@@ -1,6 +1,7 @@
+using System.Runtime.CompilerServices;
 using MySpot.Api.Commands;
 using MySpot.Api.Entities;
-using MySpot.Api.Models;
+using MySpot.Api.ValueObjects;
 
 namespace MySpot.Api.Services;
 
@@ -10,11 +11,11 @@ public class ReservationService
 
     private static readonly List<WeeklyParkingSpot> WeeklyParkingSpots =
     [
-        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000001"), Clock.Current(), Clock.Current().AddDays(7), "P1"),
-        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000002"), Clock.Current(), Clock.Current().AddDays(7), "P2"),
-        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000003"), Clock.Current(), Clock.Current().AddDays(7), "P3"),
-        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000004"), Clock.Current(), Clock.Current().AddDays(7), "P4"),
-        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000005"), Clock.Current(), Clock.Current().AddDays(7), "P5")
+        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000001"), new Week(DateTimeOffset.Now), "P1"),
+        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000002"), new Week(DateTimeOffset.Now), "P2"),
+        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000003"), new Week(DateTimeOffset.Now), "P3"),
+        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000004"), new Week(DateTimeOffset.Now), "P4"),
+        new WeeklyParkingSpot(Guid.Parse("00000000-0000-0000-0000-000000000005"), new Week(DateTimeOffset.Now), "P5")
     ];
         
     public ReservationDTO Get(Guid id) => GetAllWeekly().SingleOrDefault(x => x.Id == id);
@@ -31,7 +32,7 @@ public class ReservationService
 
     public Guid? Create(CreateReservation command)
     {
-        var parkingSpot = WeeklyParkingSpots.SingleOrDefault(x => x.Id == command.ParkingSpotId);
+        WeeklyParkingSpot parkingSpot = WeeklyParkingSpots.SingleOrDefault(x => x.Id == command.ParkingSpotId);
         if (parkingSpot is null) return default;
 
         var reservation = new Reservation(
