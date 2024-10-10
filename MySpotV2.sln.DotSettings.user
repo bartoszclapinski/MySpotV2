@@ -2,5 +2,8 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d530e5b9_002D0258_002D4eba_002D83bc_002Db7cdc0e83b85/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="given_invalid_date_add_reservation_should_fail" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Entities.WeeklyParkingSpotTests.given_invalid_date_add_reservation_should_fail&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Entities.WeeklyParkingSpotTests.given_reservation_for_already_existing_date_add_reservation_should_be_fail&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Entities.WeeklyParkingSpotTests.given_reservation_for_valid_date_add_reservation_should_succeed&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Services.ReservationServiceTests.given_reservation_for_not_taken_date_create_reservation_should_succeed&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
