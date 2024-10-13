@@ -1,9 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using MySpot.Api.Entities;
+using MySpot.Api.Repositories;
+using MySpot.Api.Services;
+using MySpot.Api.ValueObjects;
 
-builder.Services.AddControllers();
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+	.AddScoped<IClock, Clock>()
+	.AddSingleton<IWeeklyParkingSpotRepository, WeeklyParkingSpotRepository>()
+	.AddScoped<IReservationService, ReservationService>()
+	.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 app.UseHttpsRedirection();
 

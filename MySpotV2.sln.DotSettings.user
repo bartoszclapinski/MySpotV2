@@ -5,5 +5,7 @@
     &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Entities.WeeklyParkingSpotTests.given_reservation_for_already_existing_date_add_reservation_should_be_fail&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Entities.WeeklyParkingSpotTests.given_reservation_for_valid_date_add_reservation_should_succeed&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Services.ReservationServiceTests.given_reservation_for_not_taken_date_create_reservation_should_succeed&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Framework.ServiceCollectionTests.test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D90454F1-B895-42F4-A7B3-12FB65B99DC5::net8.0::MySpot.UnitTests.Services.ReservationServiceTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
