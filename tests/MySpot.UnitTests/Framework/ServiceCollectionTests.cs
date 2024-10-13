@@ -11,12 +11,13 @@ public class ServiceCollectionTests
 	{
 		var serviceCollection = new ServiceCollection();
 		//	serviceCollection.AddTransient<IMessenger, Messenger>();
-		serviceCollection.AddScoped<IMessenger, Messenger>();
-		serviceCollection.AddScoped<IMessenger, Messenger2>();
-		//	serviceCollection.AddSingleton<IMessenger, Messenger>();
+		//	serviceCollection.AddScoped<IMessenger, Messenger>();
+		//	serviceCollection.AddScoped<IMessenger, Messenger2>();
+		serviceCollection.AddSingleton<IMessenger, Messenger>();
 		
 		ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
 
+		
 		using IServiceScope scope = serviceProvider.CreateScope();
 		{
 			var messenger = scope.ServiceProvider.GetRequiredService<IMessenger>();
